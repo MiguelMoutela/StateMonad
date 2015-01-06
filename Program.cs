@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Program.List;
 using Program.Tree;
 
 namespace Program
@@ -11,7 +12,7 @@ namespace Program
             Console.WriteLine("Monadically labeled List:");
 
             var list = new[] { "C#", "F#", "Haskell", "Clojure" };
-            var labeledList = List.LabelList.Label(list, new StateMonad<char, char>(s => StateContentPair.Create((char)(s + 1), s)), 'a');
+            var labeledList = LabelList.Label(list, new StateMonad<char, char>(s => StateContentPair.Create((char)(s + 1), s)), 'a');
             labeledList.ToList().ForEach(Console.WriteLine);
         }
 
